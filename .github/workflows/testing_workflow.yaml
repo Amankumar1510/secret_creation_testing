@@ -1,0 +1,21 @@
+name: Dynamic Secret Names
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Enter the name (aman or akash)'
+        required: true
+
+jobs:
+  create-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set secret name
+        id: set-secret-name
+        run: echo "::set-output name=secret_name::${{ github.event.inputs.name }}"
+
+      - name: Create secret
+        run: |
+          echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
+          echo "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
