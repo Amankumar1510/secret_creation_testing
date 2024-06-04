@@ -3,7 +3,7 @@ name: Dynamic Secret Names
 on:
   push:
     branch:
-      -main
+      -master
   workflow_dispatch:
     inputs:
       name:
