@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Enter the name (aman or akash)'
+        description: 'Enter the name (AMAN_KUMAR or AKASH_KUMAR)'
         required: true
 
 jobs:
@@ -24,9 +24,6 @@ jobs:
       - name: Create secret
         env:
           SECRET_NAME : "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
-          SECRET_NAME_1 : ${{ steps.set-secret-name.outputs.secret_name_1 }}
         run: |
           echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
-          echo "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
           echo "${{ env.SECRET_NAME }}"
-          echo "${{ env.SECRET }}"
