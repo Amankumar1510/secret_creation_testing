@@ -22,9 +22,9 @@ jobs:
 
       - name: Create secret
         env:
-          SECRET_NAME : ${{ steps.set-secret-name.outputs.secret_name }}
+          SECRET_NAME : secrets.${{ steps.set-secret-name.outputs.secret_name }}
         run: |
           echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
           echo "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
-          echo "${{ secrets[env.SECRET_NAME] }}"
+          echo  $SECRET_NAME
           echo "${{ env.SECRET }}"
