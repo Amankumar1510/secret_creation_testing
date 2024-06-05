@@ -1,9 +1,6 @@
 name: Dynamic Secret Names
 
 on:
-  push:
-    branch:
-      -master
   workflow_dispatch:
     inputs:
       name:
@@ -19,11 +16,12 @@ jobs:
       - name: Set secret name
         id: set-secret-name
         run: |
-          echo "::set-output name=secret_name::${{ github.event.inputs.name }}"
+          echo "secret_name=${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
 
       - name: Create secret
         env:
           SECRET_NAME : "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
         run: |
+          echo "${{ steps.set-secret-name.outputs.secret_name }}" 
           echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
           echo "${{ env.SECRET_NAME }}"
