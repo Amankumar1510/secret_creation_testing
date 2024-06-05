@@ -19,13 +19,15 @@ jobs:
       - name: Set secret name
         id: set-secret-name
         run: |
-          echo "{secret_name} = secrets.${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
+          echo "{secret_name} = ${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
+          echo "{secret_name_1} = secrets.${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
 
       - name: Create secret
         env:
           SECRET_NAME : ${{ steps.set-secret-name.outputs.secret_name }}
+          SECRET_NAME_1 : ${{ steps.set-secret-name.outputs.secret_name_1 }}
         run: |
           echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
           echo "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
-          echo "${{ env.SECRET_NAME }}"
+          echo "${{ secrets."${{ env.SECRET_NAME }}" }}"
           echo "${{ env.SECRET }}"
