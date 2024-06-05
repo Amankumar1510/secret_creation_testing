@@ -13,6 +13,8 @@ on:
 jobs:
   create-secrets:
     runs-on: ubuntu-latest
+    env:
+      SECRET: ${{ secrets.AKASH_KUMAR }}
     steps:
       - name: Set secret name
         id: set-secret-name
@@ -22,3 +24,4 @@ jobs:
         run: |
           echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
           echo "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
+          echo "${{ env.SECRET }}
