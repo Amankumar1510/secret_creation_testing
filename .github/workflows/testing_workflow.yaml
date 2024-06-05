@@ -24,4 +24,4 @@ jobs:
         run: |
           echo "Creating secret ${{ steps.set-secret-name.outputs.secret_name }}"
           echo "${{ secrets[steps.set-secret-name.outputs.secret_name] }}"
-          echo "${{ env.SECRET }}
+          echo "${{ env.SECRET }}"
