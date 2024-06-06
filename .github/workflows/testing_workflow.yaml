@@ -16,7 +16,8 @@ jobs:
       - name: Set secret name
         id: set-secret-name
         run: |
-          echo "secret_name=BIRTHDAY_${{ github.event.inputs.name }}_KUMAR" >> $GITHUB_OUTPUT
+          secret_name_upper=$(echo "BIRTHDAY_${{ github.event.inputs.name }}_KUMAR" | tr '[:lower:]' '[:upper:]')
+          echo "secret_name=$secret_name_upper" >> $GITHUB_OUTPUT
 
       - name: Create secret
         env:
