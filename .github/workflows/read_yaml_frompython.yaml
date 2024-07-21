@@ -42,4 +42,4 @@ jobs:
       
       - name: Check Endpoint
         run: |
-          echo "The API Endpoint is ${env.API_ENDPOINT}."
+          echo "The API Endpoint is ${{env.API_ENDPOINT}}."
