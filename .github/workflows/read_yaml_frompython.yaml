@@ -2,7 +2,7 @@ name:  Read a yaml file using python script and store values in GITHUB output or
 run-name: Read yaml and store in output or envrionment
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
     inputs:
       envType:
         description: 'Type'
