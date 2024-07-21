@@ -34,7 +34,7 @@ jobs:
           echo "Location: ${{ env.LOCATION }}"
           echo "Work : ${{ env.WORK }}"
       
-      -name: Create Dynamic API Endpoint
+      - name: Create Dynamic API Endpoint
         run: |
           API_ENDPOINT = "https://${NAME}/live"
           echo "API_ENDPOINT = ${API_ENDPOINT}"
