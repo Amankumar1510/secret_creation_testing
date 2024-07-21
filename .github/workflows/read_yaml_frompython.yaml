@@ -25,6 +25,6 @@ jobs:
       
       - name: Test whether able to read or not
         run: |
-        echo "Name : ${{ env.NAME }}"
-        echo "Location: ${{ env.LOCATION }}"
-        echo "Work : ${{ env.WORK }}"
+          echo "Name : ${{ env.NAME }}"
+          echo "Location: ${{ env.LOCATION }}"
+          echo "Work : ${{ env.WORK }}"
