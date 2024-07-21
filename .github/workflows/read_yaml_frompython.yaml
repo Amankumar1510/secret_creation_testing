@@ -36,9 +36,9 @@ jobs:
       
       - name: Create Dynamic API Endpoint
         run: |
-          API_ENDPOINT = "https://${NAME}/live"
-          echo "API_ENDPOINT = ${API_ENDPOINT}"
-          echo "API_ENDPOINT= ${API_ENDPOINT}" >> $GITHUB_ENV
+          API_ENDPOINT="https://${NAME}/live"
+          echo "API_ENDPOINT=${API_ENDPOINT}"
+          echo "API_ENDPOINT=${API_ENDPOINT}" >> $GITHUB_ENV
       
       - name: Check Endpoint
         run: |
