@@ -17,12 +17,15 @@ jobs:
       FILE_PATH: '.github/env-realms.yaml'
     
     steps:
-
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
       - name: Run python script to read yaml file
         id: get-details-from-yaml
         run: |
           echo "file_path = ${{ env.FILE_PATH }}"
-          python home/runner/work/secret_creation_testing/secret_creation_testing/.github/scripts/read-values-from-yaml-file.py
+          python .github/scripts/read-values-from-yaml-file.py
       
       - name: Test whether able to read or not
         run: |
