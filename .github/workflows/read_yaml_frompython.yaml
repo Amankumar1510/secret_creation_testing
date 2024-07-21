@@ -15,7 +15,7 @@ jobs:
     env:
       INPUT_TYPE: ${{ github.event.inputs.envType }}
       FILE_PATH: '.github/evn-realms.yaml'
-      NAME: aman
+      GAME: aman
     
     steps:
       - uses: actions/checkout@v4
@@ -36,7 +36,7 @@ jobs:
       
       - name: Create Dynamic API Endpoint
         run: |
-          API_ENDPOINT="https://${NAME}/live"
+          API_ENDPOINT="https://${GAME}/live"
           echo "API_ENDPOINT=${API_ENDPOINT}"
           echo "API_ENDPOINT=${API_ENDPOINT}" >> $GITHUB_ENV
       
