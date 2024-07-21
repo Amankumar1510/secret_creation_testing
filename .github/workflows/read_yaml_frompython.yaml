@@ -21,6 +21,7 @@ jobs:
       - name: Run python script to read yaml file
         id: get-details-from-yaml
         run: |
+          echo "file_path = ${{ env.FILE_PATH }}"
           python .github/scripts/read-values-from-yaml-file.py
       
       - name: Test whether able to read or not
