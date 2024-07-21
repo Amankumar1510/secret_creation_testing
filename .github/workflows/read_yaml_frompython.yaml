@@ -39,7 +39,8 @@ jobs:
           API_ENDPOINT="https://${{ env.GAME }}/live"
           echo "API_ENDPOINT=${API_ENDPOINT}"
           echo "API_ENDPOINT=${API_ENDPOINT}" >> $GITHUB_ENV
-      
+          echo "The API Endpoint is ${{env.API_ENDPOINT}} here."
+
       - name: Check Endpoint
         run: |
           echo "The API Endpoint is ${{env.API_ENDPOINT}}."
