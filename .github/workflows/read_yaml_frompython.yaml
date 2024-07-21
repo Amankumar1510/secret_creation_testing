@@ -17,13 +17,14 @@ jobs:
       FILE_PATH: '.github/env-realms.yaml'
     
     steps:
-      -name: Run python script to read yaml file
-       id: get-details-from-yaml
-       run: |
-        python .github/scripts/read-values-from-yaml-file.py
+
+      - name: Run python script to read yaml file
+        id: get-details-from-yaml
+        run: |
+          python .github/scripts/read-values-from-yaml-file.py
       
-      -name: Test whether able to read or not
-       run: |
+      - name: Test whether able to read or not
+        run: |
         echo "Name : ${{ env.NAME }}"
         echo "Location: ${{ env.LOCATION }}"
         echo "Work : ${{ env.WORK }}"
