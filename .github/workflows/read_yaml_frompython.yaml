@@ -22,7 +22,7 @@ jobs:
         id: get-details-from-yaml
         run: |
           echo "file_path = ${{ env.FILE_PATH }}"
-          python .github/scripts/read-values-from-yaml-file.py
+          python home/runner/work/secret_creation_testing/secret_creation_testing/.github/scripts/read-values-from-yaml-file.py
       
       - name: Test whether able to read or not
         run: |
